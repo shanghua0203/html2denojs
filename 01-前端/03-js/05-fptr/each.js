@@ -7,7 +7,7 @@ function each(a, f) {
 each([3,4,5,6], console.log);
 
 function sinPrint(x) {
-  console.log("sin(%d)=%d", x, Math.sin(x));
+  console.log("sin(", x, ")=", Math.sin(x));
 }
 
 each([3,4,5,6], sinPrint);
