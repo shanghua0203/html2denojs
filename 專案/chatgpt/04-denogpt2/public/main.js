@@ -12,7 +12,7 @@ async function serverChat() {
   // add a new question
   const qTable = document.querySelector("#questionTable")
   let row = qTable.insertRow(1)
-  let idCell = row.insertCell(0);
+  let timeCell = row.insertCell(0); timeCell.innerHTML = new Date().toISOString()
   let questionCell = row.insertCell(1); questionCell.innerHTML = question
   let statusCell = row.insertCell(2); statusCell.innerHTML = `<div id="status_${cid}">等待中</div>`
 
