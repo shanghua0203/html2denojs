@@ -1,5 +1,13 @@
 # chatExample
 
+![](./img/chatGptQA1.png)
+
+![](./img/chatGptQA2.png)
+
+![](./img/chatGptQA3.png)
+
+## 問答紀錄
+
 請扮演一個意圖判斷者，判斷使用者的意圖 (購物/股價/搜尋/問答)，並傳回意圖的 JSON 回來給我
 
 範例 1. 
