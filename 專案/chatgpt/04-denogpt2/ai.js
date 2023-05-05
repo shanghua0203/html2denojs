@@ -22,7 +22,7 @@ async function chatGpt(question) {
     return {answer:json.choices[0].message.content}
 }
 
-let fakeChat = true
+let fakeChat = false
 export async function chat(question) {
     let r = null
     if (fakeChat) {
