@@ -1,3 +1,11 @@
+# 本遊戲來源
+
+* https://github.com/Intenzi/Fighting-Game
+
+由 ccc 加上中文說明文件！
+
+## 原始 README
+
 Original learning resource: www.youtube.com/watch?v=vyqbNFMDRGQ
 
 Click to play: https://tenzify.netlify.app
