@@ -4,6 +4,14 @@
 
 由 ccc 加上中文說明文件！
 
+不過該程式的真正作者應該是這位
+
+* https://github.com/chriscourses/fighting-game
+
+這是他的教學影片
+
+https://www.youtube.com/watch?v=vyqbNFMDRGQ
+
 ## 原始 README
 
 Original learning resource: www.youtube.com/watch?v=vyqbNFMDRGQ
