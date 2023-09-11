@@ -4,9 +4,6 @@ class Vector {
     this.a = array
   }
 
-  length() {
-  }
-
   neg() {
     let a = []
     let i=0
@@ -46,15 +43,11 @@ class Vector {
   }
 }
 
-/*
 let p = new Vector([2,3,4]), p2 = new Vector([1,2,3])
 console.log(p)
 console.log(p.toString())
-console.log(p+'')
 
 console.log('p=', p, 'p2=', p2)
 console.log('p.neg()=', p.neg())
 console.log('p.add(p2)=', p.add(p2))
 
-p2.neg()
-*/
