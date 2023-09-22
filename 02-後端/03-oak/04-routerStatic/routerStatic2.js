@@ -24,7 +24,7 @@ router
       context.response.body = books.get(context.params.id);
     }
   })
-  .get("/root/(.*)", async (context) => {
+  .get("/public/(.*)", async (context) => {
     // console.log('context=', context)
     let wpath = context.params[0]
     console.log('wpath=', wpath)
