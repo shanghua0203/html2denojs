@@ -1,4 +1,16 @@
-# Hugo
+# Hugo 新版
+
+參考我的架站 
+
+* https://ccckmit.github.io/myhugo/
+
+還有架站的過程說明
+
+* https://github.com/ccckmit/myhugo/tree/master
+
+
+# Hugo 舊版
+
 
 ## Install
 
