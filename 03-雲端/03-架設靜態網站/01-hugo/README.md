@@ -8,6 +8,14 @@
 
 * https://github.com/ccckmit/myhugo/tree/master
 
+還有
+
+* https://cccsite.github.io/cccsite/
+
+還有架站的過程說明
+
+* https://github.com/cccsite/
+
 
 # Hugo 舊版
 
