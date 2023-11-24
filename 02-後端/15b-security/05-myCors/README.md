@@ -1,28 +1,20 @@
-# XHR and CORS
+# 參考: CORS
 
-## 範例 1
+* https://www.shubo.io/what-is-cors/ (讚！寫得很清楚)
 
+非「簡單」的跨來源請求，例如：HTTP PUT/DELETE 方法，或是 Content-Type: application/json 等，瀏覽器在發送請求之前會先發送一個 「preflight request（預檢請求）」，其作用在於先問伺服器：你是否允許這樣的請求？真的允許的話，我才會把請求完整地送過去。
 
-1. 在 corsServer/ 執行 deno run -A corsPattern.js // 或換成 corsAll.js / corsPart.js
-2. 在 staticServer/ 執行 deno run -A staticServer.js
+* [那些經歷過的 CORS 蠢問題](https://medium.com/@yovan/%E9%82%A3%E4%BA%9B%E7%B6%93%E6%AD%B7%E9%81%8E%E7%9A%84-cors-%E8%A0%A2%E5%95%8F%E9%A1%8C-e63576f67066) (讚！)
 
-到 http://localhost:8002/cors.html ，然後開啟開發人員工具看執行結果
+* [Huli's blog: CORS 完全手冊（一）：為什麼會發生 CORS 錯誤？](https://blog.huli.tw/2021/02/19/cors-guide-1/)
 
-結果
-
-1. corsAll.js fetch 成功
-2. corsPart.js fetch 失敗 // 看來是 cors 套件在這裡有問題 ...
-3. corsPattern.js fetch 成功
-4. corsNo.js fetch 失敗 // 正確：因為沒有開啟 CORS
-
-
-## 參考: CORS
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    * 中文 -- https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS
 
 * [淺談跨來源資源共用（CORS）與解決辦法](https://ianchen0119.gitbook.io/deno/shi-yong-deno-da-zao-web-api/untitled-2)
 
 * https://deno.land/x/cors@v1.2.2
 
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
 Modern browsers support cross-site requests by implementing the Cross-Origin Resource Sharing (CORS) standard. As long as the server is configured to allow requests from your web application's origin, XMLHttpRequest will work. Otherwise, an INVALID_ACCESS_ERR exception is thrown.
 
@@ -70,5 +62,43 @@ Transfer-Encoding: chunked
 Content-Type: application/xml
 
 […XML Data…]
+
+```
+
+
+
+* https://blog.logrocket.com/using-helmet-node-js-secure-application/
+
+
+```
+Content-Security-Policy: default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+X-DNS-Prefetch-Control: off
+X-Frame-Options: SAMEORIGIN
+Strict-Transport-Security: max-age=15552000; includeSubDomains
+X-Download-Options: noopen
+X-Content-Type-Options: nosniff
+Origin-Agent-Cluster: ?1
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: no-referrer
+X-XSS-Protection: 0
+```
+
+## 
+
+In CORS, a preflight request is sent with the OPTIONS method so that the server can respond if it is acceptable to send the request. In this example, we will request permission for these parameters:
+
+```
+OPTIONS /resources/post-here/ HTTP/1.1
+Host: bar.example
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Connection: keep-alive
+Origin: https://foo.example
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: X-PINGOTHER, Content-Type
 
 ```
