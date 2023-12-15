@@ -14,3 +14,9 @@
 2. corsPart.js fetch 失敗 // 看來是 cors 套件在這裡有問題 ...
 3. corsPattern.js fetch 成功
 4. corsNo.js fetch 失敗 // 正確：因為沒有開啟 CORS
+
+
+## 範例 2
+
+* https://github.com/cccdeno/corsBlogFetch/
+
