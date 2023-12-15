@@ -10,6 +10,12 @@
 
 參考 -- https://stackoverflow.com/questions/24578330/flask-how-to-serve-static-html
 
+## install
+
+```
+$ pip install Flask
+```
+
 ## run
 
 ```
@@ -30,3 +36,13 @@ Press CTRL+C to quit
 127.0.0.1 - - [04/Dec/2023 13:58:38] "GET /list HTTP/1.1" 200 -
 ```
 
+## run in e320 mac
+
+```
+(base) nqucsie2022@NeXT11 02-flaskblog % python3 -m flask --app app run
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+```
