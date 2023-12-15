@@ -6,4 +6,4 @@
 
 * service : 例如 https://172.104.100.202:8001/list
 
-(我在想，如果 web service 架在 https://denoka.net/list 這樣的網頁上，應該就不會有不安全警告了)
+(我在想，如果 web service 架在 https://denoka.net/ 這樣的網頁上，應該就不會有不安全警告了)
