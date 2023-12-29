@@ -14,5 +14,6 @@ Deno.test("it should allow post requests", async () => {
   await request.post("/user")
     .set("Content-Type", "application/json")
     .send('{"name":"superoak"}')
-    .expect(200);
+    .expect(200)
+    .expect("Post!")
 });

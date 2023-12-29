@@ -53,7 +53,9 @@ app.listen({
   secure: true,
   certFile: './cert.pem', // "./localhost.crt",
   keyFile: './key.pem', // "./localhost.key",
-}).catch((error)=>{console.log('error=', error)})
+}).catch((error)=>{
+  // console.log('error=', error)
+})
 console.log('Server run at https://127.0.0.1:443')
 
 /*

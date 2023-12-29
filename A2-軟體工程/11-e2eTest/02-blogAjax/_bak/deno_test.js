@@ -1,6 +1,5 @@
 import {ok} from 'https://deno.land/x/tdd/mod.ts'
-// import puppeteer from "https://deno.land/x/puppeteer/mod.ts";
-import puppeteer from "npm:puppeteer";
+import puppeteer from "https://deno.land/x/puppeteer/mod.ts";
 var browser, page
 
 const opts = {
@@ -20,7 +19,7 @@ Deno.test('Puppteer', async function() {
   var html;
 
   await page.goto('http://127.0.0.1:8000', {waitUntil: 'domcontentloaded'})
-  await sleep(500);
+  sleep(500);
   html = await page.content()
   console.log('html=', html)
   let idx = html.indexOf('<p>You have <strong>0</strong> posts!</p>')
@@ -29,7 +28,7 @@ Deno.test('Puppteer', async function() {
 
   // console.log('test create post...')
   await page.click('#createPost')
-  await sleep(500);
+  sleep(500);
   html = await page.content()
   ok(html.indexOf('<h1>New Post</h1>') >= 0)
 
@@ -41,14 +40,15 @@ Deno.test('Puppteer', async function() {
   await page.click('#savePost')
 
   // console.log('we should have 1 post now...')
-  await sleep(500);
+  sleep(500);
   html = await page.content()
   ok(html.indexOf('<p>You have <strong>1</strong> posts!</p>') >= 0)
 
   await page.click('#show0')
-  await sleep(500);
+  sleep(500);
   html = await page.content()
   ok(html.indexOf('<h1>aaa</h1>') >= 0)
+
   await browser.close();
 })
 

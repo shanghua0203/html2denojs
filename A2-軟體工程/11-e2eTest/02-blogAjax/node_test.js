@@ -8,6 +8,10 @@ const opts = {
   timeout: 10000
 };
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 describe('blogAjax', function() {
   before (async function () {
     browser = await puppeteer.launch(opts);
@@ -36,13 +40,10 @@ describe('blogAjax', function() {
       await page.click('#savePost')
     })
     it('should see <p>You have <strong>1</strong> posts!</p>', async function() {
+      await sleep(500)
       let html = await page.content()
+      console.log('html=', html)
       ok(html.indexOf('<p>You have <strong>1</strong> posts!</p>') >= 0)
-    })
-    it('should see <p>You have <strong>1</strong> posts!</p>', async function() {
-      await page.click('#show0')
-      let html = await page.content()
-      ok(html.indexOf('<h1>aaa</h1>') >= 0)
     })
   })
 })

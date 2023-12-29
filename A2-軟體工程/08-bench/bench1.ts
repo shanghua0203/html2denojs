@@ -1,9 +1,7 @@
-import { runBenchmarks, bench } from "https://deno.land/std/testing/bench.ts";
+// import { runBenchmarks, bench } from "https://deno.land/std/testing/bench.ts";
 
-bench(function forIncrementX1e9(b): void {
-  b.start();
-  for (let i = 0; i < 1e9; i++);
-  b.stop();
+Deno.bench("forIncrementX1e8", function() {
+  for (let i = 0; i < 1e8; i++);
 });
 
-runBenchmarks();
+// runBenchmarks();
