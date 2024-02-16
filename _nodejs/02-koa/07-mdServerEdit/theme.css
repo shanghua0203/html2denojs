@@ -1,0 +1,28 @@
+body {
+  margin: 10px;
+}
+
+pre {
+  padding: 10px;
+  background-color: #dddddd;
+  border: 1px black solid;
+}
+
+textarea {
+  padding: 10px;
+  width: 95%;
+  height: 400px;
+  border: 1px black solid;
+}
+
+button {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px black solid;
+  vertical-align: bottom;
+  height: 32px;
+}
+
+div {
+  width: 100%;
+}

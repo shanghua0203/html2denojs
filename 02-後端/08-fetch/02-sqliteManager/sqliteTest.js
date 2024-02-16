@@ -24,4 +24,4 @@ for (const [user,pass] of db.query("SELECT user,pass FROM users"))
 let r = db.query(`SELECT name FROM sqlite_schema
   WHERE type ='table' AND name NOT LIKE 'sqlite_%'`)
 console.log('r=', r)
-db.close();
+db.close()
