@@ -1,0 +1,14 @@
+<html>
+<body>
+<script src="sha.js"></script>
+<script>
+// hash('foo').then((hex) => console.log(hex));
+async function main() {
+    let hex = await hash('foo')
+    console.log(hex)
+}
+
+main()
+</script>
+</body>
+</html>
