@@ -1,5 +1,27 @@
 
 ```
-root@localhost:~/html2denojs/專案/chatgpt/01-curlGpt# ./curlGpt.sh
-{"id":"chatcmpl-7CQXGUpyZ2uMxPgrC9fu8u2mS9D4f","object":"chat.completion","created":1683196294,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":13,"completion_tokens":76,"total_tokens":89},"choices":[{"message":{"role":"assistant","content":"GPT stands for \"Generative Pre-trained Transformer.\" It is a type of deep learning model that uses unsupervised learning to generate human-like text. GPT models are trained on large amounts of data and can generate text that is coherent and contextually relevant. GPT models have been used for a variety of applications such as chatbots, language translation, and content generation."},"finish_reason":"stop","index":0}]}
+$ ./curlGpt.sh
+{
+  "id": "chatcmpl-9PTRPTnWrFZGy7fVh9Xglf9uA0ttZ",
+  "object": "chat.completion",
+  "created": 1715858399,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "GPT stands for Generative Pre-trained Transformer. It is a type of machine learning model that uses a transformer architecture to generate human-like text based on a given input prompt. GPT models are pre-trained on large amounts of text data and can be fine-tuned for specific tasks such as language translation, text generation, and question answering. These models have been widely used in natural language processing applications and have gained popularity for their ability to generate coherent and contextually relevant text."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 12,
+    "completion_tokens": 95,
+    "total_tokens": 107
+  },
+  "system_fingerprint": null
+}
 ```

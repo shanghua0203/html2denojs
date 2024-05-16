@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+  <div id="head">
+    <div id="headLeft"><a href="#home" class="logo">DenoGPT</a></div>
+    <div id="headCenter"></div>
+    <div id="headRight">
+      <select id="menu" onchange="menuSwitch(this.value)">
+          <option value=""></option> <!--☰-->
+          <option value="home">首頁</option>
+          <option value="login">登入</option>
+          <option value="signup">註冊</option>
+          <option value="setting">設定</option>
+          <option value="chat">聊天</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <div id="main">
+        <h1>DenoGPT</h1>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.js" integrity="sha512-yucm4wm2T2mZNzxtKGWQLTsMAGI+KNFRLsfFDNO9SqdMn9eauAORCybt1UnXRAAlrxJoFpdLSR9lhfuCKx22kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="main.js"></script>
+</body>
+</html>
