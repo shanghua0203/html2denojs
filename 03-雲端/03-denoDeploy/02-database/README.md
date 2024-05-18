@@ -1,10 +1,20 @@
 # database
 
-1. 不建議用雲端 database ，直接用 sqlite/ pgsql 自己管理就好了
-    * 因為雲端 database 各有各的用法，學習不容易。
+雖然雲端 database 各有各的用法，學習不容易。
+
+但是 deno deploy 不支援 sqlite, postgres 等套件的功能
+
+只能使用雲端資料庫
+
+例如 neon postgres / supabase ，用法參考
+
+* https://docs.deno.com/deploy/tutorials/tutorial-postgres
+    * https://neon.tech/
+    * https://serverlesstalent.com/compare/dynamodb/faunadb
 
 
-* https://serverlesstalent.com/compare/dynamodb/faunadb
+FaunaDb:
+
 
     Free Plan
         Free (forever) monthly capacity
