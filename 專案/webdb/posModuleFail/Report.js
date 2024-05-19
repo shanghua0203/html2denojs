@@ -1,4 +1,6 @@
-const Report = {}
+import * as Ui from './Ui.js'
+
+export const Report = {}
 
 Report.html = `
   <div id="report" class="panel">

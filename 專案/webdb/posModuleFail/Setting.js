@@ -1,4 +1,6 @@
-const Setting = {}
+import * as Ui from './Ui.js'
+
+export const Setting = {}
 
 Setting.html = `
 <table>

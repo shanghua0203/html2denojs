@@ -1,4 +1,7 @@
-const Shop = {
+import * as Ui from './Ui.js'
+import {Pos} from './Pos.js'
+
+export const Shop = {
   name: '茶舖子',
   address: '金門縣金寧鄉安美村湖南 33 號',
   tel: '082-333333',
@@ -20,13 +23,17 @@ Shop.start = function () {
   Shop.name = localStorage.getItem('Shop.name') || Shop.name
   Shop.address = localStorage.getItem('Shop.address') || Shop.address
   Shop.tel = localStorage.getItem('Shop.tel') || Shop.tel
+  console.log('Ui=', Ui)
+  console.log('Ui.id=', Ui.id)
+
+  // Ui.id('menuShopName').innerHTML = Shop.name
   Ui.id('menuShopName').innerHTML = Shop.name
   const itemsJson = localStorage.getItem('Shop.items')
   const addonsJson = localStorage.getItem('Shop.addons')
   if (itemsJson != null) Shop.items = JSON.parse(itemsJson)
   if (addonsJson != null) Shop.addons = JSON.parse(addonsJson)
   Ui.show(Shop.html)
-  sqlFetch(`CREATE TABLE IF NOT EXISTS posOrder (json TEXT)`)
+  // sqlFetch(`CREATE TABLE IF NOT EXISTS posOrder (json TEXT)`)
 }
 
 Shop.init = function () {
@@ -44,7 +51,7 @@ Shop.incCount = function () {
 
 Shop.saveOrder = function (Order) {
   localStorage.setItem('Pos.Order.' + Shop.orderCount, JSON.stringify(Order))
-  sqlFetch(`INSERT INTO posOrder (json) VALUES ('${JSON.stringify(Order)}')`)
+  // sqlFetch(`INSERT INTO posOrder (json) VALUES ('${JSON.stringify(Order)}')`)
 }
 
 Shop.getOrder = function (i) {

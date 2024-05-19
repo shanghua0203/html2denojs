@@ -1,4 +1,6 @@
-const Pos = {
+import * as Ui from './Ui.js'
+
+export const Pos = {
   order: {
     totalPrice: 0,
     records: [],

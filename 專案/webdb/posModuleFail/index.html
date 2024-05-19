@@ -5,10 +5,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="main.css"/>
 </head>
-<body onload="Shop.start()">
+<body>
 <header>
   <div class="navbar" style="float:left">
-    <a onclick="Ui.openNav()" style="cursor:pointer">&#9776;</a>
+    <a id="navOpen" style="cursor:pointer">&#9776;</a>
   </div>
   <div class="navbar" style="float:right">
     <div class="dropdown">
@@ -27,7 +27,7 @@
 </header>
 <aside>
   <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="Ui.closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" id="navClose">&times;</a>
     <a href="#bbs">公告資訊</a>
     <a href="#message">發訊息給商店</a>
     <a href="#map">商店地圖</a>
@@ -42,6 +42,28 @@
 
 <footer>
 </footer>
+<script type="module">
+console.log('load Shop.js')
+import {Shop} from './Shop.js'
+
+/*
+document.querySelector('body').addEventListener('load', function() {
+  console.log('body loaded!')
+  Shop.start()
+})
+*/
+
+Shop.start()
+
+document.querySelector('#navOpen').addEventListener('click', function() {
+  Ui.openNav()
+})
+document.querySelector('#navClose').addEventListener('click', function() {
+  Ui.closeNav()
+})
+
+</script>
+<!--
 <script src="../lib/sqlFetch.js"></script>
 <script src="Shop.js"></script>
 <script src="Pos.js"></script>
@@ -49,5 +71,6 @@
 <script src="Setting.js"></script>
 <script src="Lib.js"></script>
 <script src="Ui.js"></script>
+-->
 </body>
 </html>
