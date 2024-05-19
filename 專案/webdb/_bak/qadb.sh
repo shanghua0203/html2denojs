@@ -1,5 +1,5 @@
 set -x
-url=http://localhost:8009/sql
+url=http://localhost:8009/sqlite
 head="Content-Type: application/json"
 
 curl $url -X POST -H "$head" -d '{"sql":"CREATE TABLE IF NOT EXISTS QA (Q TEXT, A TEXT)"}'
