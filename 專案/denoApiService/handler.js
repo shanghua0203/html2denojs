@@ -2,9 +2,10 @@ import { DB } from "https://deno.land/x/sqlite/mod.ts";
 import { oFetch } from "./lib.js"
 
 export async function sqlHandler(ctx) {
-    const body = ctx.request.body; // content type automatically detected
-    if (body.type() === "json") {
-        let json = await body.json()
+    const body = ctx.request.body(); // content type automatically detected
+    console.log('body = ', body)
+    if (body.type === "json") {
+        let json = await body.value  // 12.0.0 版， 新版為 let json = await body.json()
         console.log('json=', json)
         let db = json.db
         let sql = json.sql
