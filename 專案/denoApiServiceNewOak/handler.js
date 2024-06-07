@@ -38,6 +38,9 @@ export async function uploadHandler(ctx) {
         console.log(field + ":" + value)
         if (value instanceof File) {
             let file = value
+            // 這一段用 pipe 應該會比較省記憶體
+            // 參考 -- https://docs.deno.com/examples/piping-streams
+            // https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/pipeTo
             let buffer = await file.arrayBuffer()
             // console.log('buffer=', buffer)
             let u8array = new Uint8Array(buffer)
