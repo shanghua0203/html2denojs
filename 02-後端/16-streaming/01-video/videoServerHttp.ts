@@ -1,3 +1,4 @@
+// [Video streaming service in Deno](https://medium.com/deno-the-complete-reference/video-streaming-service-in-deno-7438912b9854)
 import { serve } from "https://deno.land/std/http/mod.ts";
 import * as colors from "https://deno.land/std/fmt/colors.ts";
 

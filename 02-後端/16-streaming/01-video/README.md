@@ -4,7 +4,7 @@
 
 * [Video streaming service in Deno](https://medium.com/deno-the-complete-reference/video-streaming-service-in-deno-7438912b9854)
 
-影片請從下列網址下載
+影片請從下列網址下載，放在 testdata 中的 BigBuckBunny_512kb.mp4 檔案
 
 * https://archive.org/details/BigBuckBunny_328
 
@@ -23,6 +23,9 @@ $ deno run -A videoServerHttp.ts
 
 ## Node.js
 
+* https://www.npmjs.com/package/@videojs/http-streaming
+
 * https://blog.logrocket.com/build-video-streaming-server-node/
     * https://github.com/thesmartcoder7/video_streaming_server
 * https://github.com/bootstrapping-microservices/video-streaming-example
+* https://github.com/jhiesey/videostream
