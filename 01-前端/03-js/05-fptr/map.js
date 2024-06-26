@@ -12,5 +12,5 @@ function square(x) {
   return x*x;
 }
 
-c.log("map(x^2, [3, 1, 5, 4, 2])="+map(square, [3,1,5,4,2]));
-c.log("map(sin(x), [3, 1, 5, 4, 2])="+map(Math.sin, [3,1,5,4,2]));
+c.log("map(x^2, [3, 1, 5, 4, 2])=", map(square, [3,1,5,4,2]));
+c.log("map(sin(x), [3, 1, 5, 4, 2])=", map(Math.sin, [3,1,5,4,2]));

@@ -16,7 +16,7 @@ a.out
 *.bak
 bak
 node_modules
-db
+# db
 # mac
 .DS_Store
 # pyenv
