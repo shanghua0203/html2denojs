@@ -40,11 +40,10 @@ async function show (ctx) {
 }
 
 async function create (ctx) {
-  // var post = ctx.request.body
-  const body = ctx.request.body(); // content type automatically detected
+  const body = ctx.request.body;
   console.log('body = ', body)
-  if (body.type === "json") {
-    let post = await body.value
+  if (body.type() === "json") {
+    let post = await body.json()
     post.id = posts.length
     posts.push(post)
     ctx.response.body = 'success'

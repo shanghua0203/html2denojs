@@ -55,7 +55,7 @@ function userQuery(sql) {
 }
 
 async function parseFormBody(body) {
-  const pairs = await body.value
+  const pairs = await body.form()
   const obj = {}
   for (const [key, value] of pairs) {
     obj[key] = value
@@ -68,8 +68,8 @@ async function signupUi(ctx) {
 }
 
 async function signup(ctx) {
-  const body = ctx.request.body()
-  if (body.type === "form") {
+  const body = ctx.request.body
+  if (body.type() === "form") {
     var user = await parseFormBody(body)
     var dbUsers = userQuery(`SELECT id, username, password, email FROM users WHERE username='${user.username}'`)
     if (dbUsers.length === 0) {
@@ -85,8 +85,8 @@ async function loginUi(ctx) {
 }
 
 async function login(ctx) {
-  const body = ctx.request.body()
-  if (body.type === "form") {
+  const body = ctx.request.body
+  if (body.type() === "form") {
     var user = await parseFormBody(body)
     var dbUsers = userQuery(`SELECT id, username, password, email FROM users WHERE username='${user.username}'`) // userMap[user.username]
     var dbUser = dbUsers[0]
@@ -130,8 +130,8 @@ async function show(ctx) {
 }
 
 async function create(ctx) {
-  const body = ctx.request.body()
-  if (body.type === "form") {
+  const body = ctx.request.body
+  if (body.type() === "form") {
     var post = await parseFormBody(body)
     console.log('create:post=', post)
     var user = await ctx.state.session.get('user')
