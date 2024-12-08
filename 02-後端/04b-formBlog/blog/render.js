@@ -1,104 +1,51 @@
-export function layout(title, content) {
+export async function list(posts) {
   return `
-  <html>
-  <head>
-    <title>${title}</title>
-    <style>
-      body {
-        padding: 80px;
-        font: 16px Helvetica, Arial;
-      }
-  
-      h1 {
-        font-size: 2em;
-      }
-  
-      h2 {
-        font-size: 1.2em;
-      }
-  
-      #posts {
-        margin: 0;
-        padding: 0;
-      }
-  
-      #posts li {
-        margin: 40px 0;
-        padding: 0;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #eee;
-        list-style: none;
-      }
-  
-      #posts li:last-child {
-        border-bottom: none;
-      }
-  
-      textarea {
-        width: 500px;
-        height: 300px;
-      }
-  
-      input[type=text],
-      textarea {
-        border: 1px solid #eee;
-        border-top-color: #ddd;
-        border-left-color: #ddd;
-        border-radius: 2px;
-        padding: 15px;
-        font-size: .8em;
-      }
-  
-      input[type=text] {
-        width: 500px;
-      }
-    </style>
-  </head>
-  <body>
-    <section id="content">
-      ${content}
-    </section>
-  </body>
-  </html>
-  `
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Blog Posts</h1>
+        <a href="/post/new">New Post</a>
+        <ul>
+          ${posts.map(post => `
+            <li>
+              <a href="/post/${post.id}">${post.title}</a>
+              ${post.created_at ? `<small> (Posted on ${post.created_at.toLocaleString()})</small>` : ''}
+            </li>
+          `).join('')}
+        </ul>
+      </body>
+    </html>
+  `;
 }
 
-export function list(posts) {
-  let list = []
-  for (let post of posts) {
-    list.push(`
-    <li>
-      <h2>${ post.title }</h2>
-      <p><a href="/post/${post.id}">Read post</a></p>
-    </li>
-    `)
-  }
-  let content = `
-  <h1>Posts</h1>
-  <p>You have <strong>${posts.length}</strong> posts!</p>
-  <p><a href="/post/new">Create a Post</a></p>
-  <ul id="posts">
-    ${list.join('\n')}
-  </ul>
-  `
-  return layout('Posts', content)
+export async function show(post) {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>${post.title}</h1>
+        <p>${post.body}</p>
+        ${post.created_at ? `<small>Posted on: ${post.created_at.toLocaleString()}</small>` : ''}
+        <br>
+        <a href="/">Back to List</a>
+      </body>
+    </html>
+  `;
 }
 
-export function newPost() {
-  return layout('New Post', `
-  <h1>New Post</h1>
-  <p>Create a new post.</p>
-  <form action="/post" method="post">
-    <p><input type="text" placeholder="Title" name="title"></p>
-    <p><textarea placeholder="Contents" name="body"></textarea></p>
-    <p><input type="submit" value="Create"></p>
-  </form>
-  `)
-}
-
-export function show(post) {
-  return layout(post.title, `
-    <h1>${post.title}</h1>
-    <pre>${post.body}</pre>
-  `)
+export async function newPost() {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Create New Post</h1>
+        <form action="/post" method="post">
+          <input type="text" name="title" placeholder="Title" required><br>
+          <textarea name="body" placeholder="Body" required></textarea><br>
+          <input type="submit" value="Create Post">
+        </form>
+        <a href="/">Back to List</a>
+      </body>
+    </html>
+  `;
 }
