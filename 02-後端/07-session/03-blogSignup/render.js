@@ -1,3 +1,5 @@
+//render.js
+
 export function layout(title, content) {
   return `
   <html>
@@ -101,26 +103,28 @@ export function fail() {
   `)
 }
 
-export function list(posts, user) {
+export function list(posts, user, listUser = null) {
   console.log('list: user=', user)
   let list = []
   for (let post of posts) {
     list.push(`
     <li>
-      <h2>${ post.title } -- by ${post.username}</h2>
+      <h2>${ post.title} -- by <a href="/list/${post.username}">${post.username}</a></h2>
       <p><a href="/post/${post.id}">Read post</a></p>
     </li>
     `)
   }
+
   let content = `
-  <h1>Posts</h1>
-  <p>${(user==null)?'<a href="/login">Login</a> to Create a Post!':'Welcome '+user.username+', You may <a href="/post/new">Create a Post</a> or <a href="/logout">Logout</a> !'}</p>
+  <h1>${listUser ? `${listUser}'s Posts` : 'Posts'}</h1>
+  <p>${(user == null) ? '<a href="/login">Login</a> to Create a Post!' : 'Welcome ' + user.username + ', You may <a href="/post/new">Create a Post</a> or <a href="/logout">Logout</a> !'}</p>
   <p>There are <strong>${posts.length}</strong> posts!</p>
+  ${listUser ? `<p><a href="/">Back to All Posts</a></p>` : ''}
   <ul id="posts">
     ${list.join('\n')}
   </ul>
   `
-  return layout('Posts', content)
+  return layout(listUser ? `${listUser}'s Posts` : 'Posts', content)
 }
 
 export function newPost() {

@@ -1,3 +1,5 @@
+//app.js
+
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import * as render from './render.js'
 import { DB } from "https://deno.land/x/sqlite/mod.ts";
@@ -18,6 +20,7 @@ router.get('/', list)
   .get('/post/new', add)
   .get('/post/:id', show)
   .post('/post', create)
+  .get('/list/:user', listUserPosts); 
 
 const app = new Application()
 app.use(Session.initMiddleware())
@@ -71,7 +74,9 @@ async function signup(ctx) {
   const body = ctx.request.body
   if (body.type() === "form") {
     var user = await parseFormBody(body)
+    console.log('user=', user)
     var dbUsers = userQuery(`SELECT id, username, password, email FROM users WHERE username='${user.username}'`)
+    console.log('dbUsers=', dbUsers)
     if (dbUsers.length === 0) {
       sqlcmd("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", [user.username, user.password, user.email]);
       ctx.response.body = render.success()
@@ -143,6 +148,13 @@ async function create(ctx) {
     }
     ctx.response.redirect('/');
   }
+}
+
+async function listUserPosts(ctx) {
+  const username = ctx.params.user;
+  let posts = postQuery(`SELECT id, username, title, body FROM posts WHERE username='${username}'`);
+  console.log('listUserPosts:posts=', posts);
+  ctx.response.body = await render.list(posts, await ctx.state.session.get('user'), username);
 }
 
 console.log('Server run at http://127.0.0.1:8000')
