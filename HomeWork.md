@@ -26,3 +26,4 @@
 - 登入介面參考老師上課教材
 - AI聊天機器人功能參考[網路上教程](https://youtu.be/q5HiD5PNuck?si=LtVttxXlm8xncOrZ)自行製作
 - Claude協助整合並debug
+- [README](https://github.com/shanghua0203/html2denojs/blob/master/%E6%9C%9F%E4%B8%AD%E5%B0%88%E6%A1%88/signup/README.md)
