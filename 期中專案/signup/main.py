@@ -1,5 +1,5 @@
-OPENAI_API_KEY='your_actual_api_key_here'
-SECRET_KEY='your_secret_key_here'
+OPENAI_API_KEY=your_actual_api_key_here
+SECRET_KEY=your_secret_key_here
 from fastapi import FastAPI, Form, HTTPException, Depends
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
